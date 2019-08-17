@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb://tristan:Elijah123!@ds117590.mlab.com:17590/candy",
+  "jwtSecret": "itruelylovelamp"
+}
