@@ -15,7 +15,7 @@ const CandySchema = new Schema({
     type: String,
     required: true
   },
-  alertStyle: {
+  info: {
     type: [],
     required: false
   }
