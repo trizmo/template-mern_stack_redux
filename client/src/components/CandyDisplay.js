@@ -27,17 +27,14 @@ class CandyDisplay extends Component {
           This is the candy Display!
         </h4>
         
-        {/*
-        ## If the candy data array is greater than 0
-        ## Then map thru the array and <p> candy.name
-        */}
+        {/* mapping thru candy data */}
         {candy.data.length > 0 ? (
           candy.data.map(candy => (
           <p>{candy.name}</p>
           ))
-        ) : (<p>error</p>)}
-
+        ) : (<p>You must log in.</p>)}
       </div>
+      
     )
   }
 }
