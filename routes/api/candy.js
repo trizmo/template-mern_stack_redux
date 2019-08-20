@@ -9,7 +9,7 @@ const candy_controller = require("../../controllers/candy_controller")
 
 // GET ROUTE api/candy
 // This route will GET ALL candy from db
-// Access: PUBLIC
+// Access: PRIVTE: AUTHORIZATION REQUIRED
 router.get('/', auth, candy_controller.index)
 
 // POST ROUTE api/candy/new
