@@ -13,6 +13,20 @@ exports.index = (req, res) => {
   }))
 }
 
+// DELETE Request from route api/candy/delete/:id
+// Deletes a candy from db by id
+exports.delete = (req, res) => {
+  const id = req.params.id
+  candy.findByIdAndDelete({ _id: id })
+    .then(candy => res.json({
+      msg: "Candy Succesfully Deleted!",
+      candy
+    }))
+    .catch(err => {
+      console.log(err)
+    })
+}
+
 
 // POST Request route: api/candy/new
 // add a new candy to database
@@ -23,11 +37,15 @@ exports.newCandy = (req, res) => {
     cost: req.body.cost,
     info: req.body.info,
   })
-  newCandy.save().then(
-    candy => res.json({
-      msg: "Candy Successfully Saved!",
-      candy
-    })
+  newCandy.save()
+    .then(
+      candy => res.json({
+        msg: "Candy Successfully Saved!",
+        candy
+      })
+      .catch(err => {
+        console.log(err)
+      })
   )
 
 }
