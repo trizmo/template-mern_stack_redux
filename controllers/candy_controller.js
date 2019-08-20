@@ -7,7 +7,10 @@ const candy = require("../model/candy");
 exports.index = (req, res) => {
   candy.find()
   .sort("date: -1")
-  .then(candy => res.json(candy))
+  .then(candy => res.json({
+    msg: "Displaying all candy...",
+    candy
+  }))
 }
 
 

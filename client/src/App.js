@@ -7,11 +7,13 @@ import store from './store/store'
 
 // Components
 import CandyDisplay from './components/CandyDisplay'
+import MainNavBar from './components/MainNavBar';
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
+      <MainNavBar />
         Welcome to mern_stack_redux template
       <CandyDisplay />
       </div>

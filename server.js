@@ -23,7 +23,6 @@ mongoose
   .catch(err => console.log(err));
 
 // Routing Config
-// app.use('/api/candy', require('./routes/api/candy'))
 require('./routes/routes')(app);
 
 
