@@ -58,14 +58,15 @@ exports.register = (req, res) => {
 
                 }
               )
-
             })
-
         })
       })
     })
 }
 
+
+// POST REQUEST
+// Logs user in
 exports.login = (req, res) => {
   const { email, password } = req.body;
 
@@ -114,3 +115,19 @@ exports.login = (req, res) => {
 
 }
 
+
+// GET REQUEST
+// Gets the current user
+exports.currentUser = (req, res) => {
+  const id = req.body.id
+  User.findOneAndDelete({ _id: id })
+    .select("-password")
+    .then(user => res.status(200).json({
+      msg: "User succesfully retreived",
+      user
+    }))
+    .catch(err => res.status(400).json({
+      msg: "Cannot find user",
+      err
+    }))
+}

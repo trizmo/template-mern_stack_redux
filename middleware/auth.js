@@ -6,8 +6,8 @@ function auth(req, res, next) {
 
   // Check for token
   if (!token) {
-    res.status(401).json({
-      msg: "UNAUTHORIZED: No Token"
+    return res.status(401).json({
+      msg: "UNAUTHORIZED: No Tolkien: You Shall Not Pass!"
     })
   }
 

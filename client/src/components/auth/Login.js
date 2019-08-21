@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import {
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
   Form,
   FormGroup,
   Label,
   Input,
-  NavLink,
-  Alert
 } from 'reactstrap';
 
+//REDUX
+import { connect } from 'react-redux'
+import { login } from '../../store/actions/authActions'
 
-export default class Login extends Component {
+
+
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,26 +24,24 @@ export default class Login extends Component {
   }
 
   onChange = event => {
-    this.setState({ [event.target.name]: event.target.value.toUpperCase() }, () => {
+    this.setState({ [event.target.name]: event.target.value }, () => {
     })
   }
 
   onSubmit = event => {
     event.preventDefault();
-    const { name, email, password } = this.state;
+    const { email, password } = this.state;
 
     // Create user Object
-    const newUser ={
-      name, 
+    const user = {
       email,
       password
     };
 
-    //Attempt to register newUser
-    this.props.register(newUser)
+    //Attempt to Login newUser
+    this.props.login(user)
+    console.log("form submitted")
 
-    //closes modal
-    // this.toggle();
   }
 
   render() {
@@ -89,3 +87,11 @@ export default class Login extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+
+})
+
+export default connect(mapStateToProps, {
+  login
+})(Login)
