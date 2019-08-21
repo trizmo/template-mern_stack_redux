@@ -1,6 +1,23 @@
+// ERROR REDUCERS
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
+// AUTH REDUCERS
+export const USER_LOADING = 'USER_LOADING';
+export const USER_LOADED = 'USER_LOADED';
+export const AUTH_ERROR = 'AUTH_ERROR';
+
+// LOGIN AND REGISTER REDUCERS
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
+
 // CANDY REDUCERS
 export const GET_CANDY = 'GET_CANDY';
 export const ADD_CANDY = 'ADD_CANDY';
 export const DELETE_CANDY = 'DELETE_CANDY';
 export const CANDY_LOADING = 'CANDY_LOADING';
+
 

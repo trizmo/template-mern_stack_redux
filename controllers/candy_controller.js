@@ -6,11 +6,11 @@ const candy = require("../model/candy");
 // get all candies and return as json
 exports.index = (req, res) => {
   candy.find()
-  .sort("date: -1")
-  .then(candy => res.json({
-    msg: "Displaying all candy...",
-    candy
-  }))
+    .sort("date: -1")
+    .then(candy => res.json({
+      msg: "Displaying all candy...",
+      candy
+    }))
 }
 
 // DELETE Request from route api/candy/delete/:id
@@ -27,7 +27,6 @@ exports.delete = (req, res) => {
     })
 }
 
-
 // POST Request route: api/candy/new
 // add a new candy to database
 exports.newCandy = (req, res) => {
@@ -43,9 +42,9 @@ exports.newCandy = (req, res) => {
         msg: "Candy Successfully Saved!",
         candy
       })
-      .catch(err => {
-        console.log(err)
-      })
-  )
+        .catch(err => {
+          console.log(err)
+        })
+    )
 
 }

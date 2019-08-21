@@ -10,7 +10,6 @@ const candy_controller = require("../../controllers/candy_controller")
 // GET ROUTE api/candy
 // This route will GET ALL candy from db
 // Access: PRIVATE: AUTHORIZATION REQUIRED
-
 router.get('/', auth, candy_controller.index)
 
 // DELETE ROUTE api/candy/delete/:id
