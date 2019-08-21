@@ -101,6 +101,7 @@ exports.login = (req, res) => {
                 console.log(err)
               }
               res.status(200).json({
+                // res.status(200).json({
                 msg: "Login successful, user authenticated",
                 token,
                 user
@@ -119,8 +120,8 @@ exports.login = (req, res) => {
 // GET REQUEST
 // Gets the current user
 exports.currentUser = (req, res) => {
-  const id = req.body.id
-  User.findOneAndDelete({ _id: id })
+  const id = req.auth.user.id
+  User.findById({ _id: id })
     .select("-password")
     .then(user => res.status(200).json({
       msg: "User succesfully retreived",
