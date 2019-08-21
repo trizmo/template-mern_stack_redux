@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
         user: action.payload
       }
 
-    case LOGIN_SUCCESS: // 9/11 = zero day
+    case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
       return {
         ...state,
