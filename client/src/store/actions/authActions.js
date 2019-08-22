@@ -15,19 +15,26 @@ import { returnErrors } from './errorActions'
 // Load Authenticated User
 export const loadUser = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING })
+
+  // Get token and set headers
   const token = getState().auth.token
+  // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkNWNiYTc2MzQ5Y2QzNWYyNDlhZjhiYyIsImlhdCI6MTU2NjQ1NDI0OCwiZXhwIjoxNTY2NDU3ODQ4fQ.mUBGSkCoW-_fE6iN9EP_IlJbJT3vEpFzPpA4-mXAN1s"
+  console.log("got token!: ", token)
   const config = { headers: { "Content-type": "application/json" } }
   if (token) { config.headers["x-auth-token"] = token }
+  console.log("config ready: ", config)
 
   axios.get("/api/user/current", config)
     .then(res => {
+      // console.log(res.data)
       dispatch({
         type: USER_LOADED,
         payload: res.data
       })
+
     })
     .catch(err => {
-      dispatch(returnErrors(err.response.msg, err.response.status, err.response.data));
+      dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
         type: AUTH_ERROR,
         // payload: err
@@ -53,7 +60,7 @@ export const login = ({ email, password }) => dispatch => {
     // })
     .catch(err => {
       console.log(err)
-      dispatch(returnErrors(err.response.message, err.response.status, err.response.data))
+      dispatch(returnErrors(err.response.data, err.response.status, err.response.data))
       dispatch({
         type: LOGIN_FAIL
       })

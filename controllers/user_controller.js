@@ -95,7 +95,7 @@ exports.login = (req, res) => {
           jwt.sign(
             { id: user.id },
             config.get("jwtSecret"),
-            { expiresIn: 900 },
+            { expiresIn: 3600 },
             (err, token) => {
               if (err) {
                 console.log(err)
@@ -106,22 +106,20 @@ exports.login = (req, res) => {
                 token,
                 user
               })
-
             }
           )
-
         })
-
     })
-
 }
 
 
 // GET REQUEST
 // Gets the current user
 exports.currentUser = (req, res) => {
-  const id = req.auth.user.id
-  User.findById({ _id: id })
+  console.log("*** LOADING CURRENT USER ***")
+  const id = req.user.id
+  console.log("id found!: ", id)
+  User.findOne({ _id: id })
     .select("-password")
     .then(user => res.status(200).json({
       msg: "User succesfully retreived",
