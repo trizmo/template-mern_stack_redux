@@ -10,3 +10,10 @@ Backend built with Node Server using ExpressJS for routing. A cloud based databa
 - Express
 - MongoDB
 - Mongoose
+
+
+### Left to finish
+- loadUser not working
+- login user action functionality
+- register user action functionality
+- minor styling 

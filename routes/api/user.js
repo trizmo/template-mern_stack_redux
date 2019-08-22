@@ -18,7 +18,7 @@ router.post("/login", user_controller.login)
 // GET ROUTE api/user/current
 // This route will get the currnt user
 // Access: PUBLIC
-router.post("/current", auth, user_controller.currentUser)
+router.get("/current", auth, user_controller.currentUser)
 
 
 
